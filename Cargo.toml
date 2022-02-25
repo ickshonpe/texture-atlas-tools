@@ -1,19 +1,15 @@
 [package]
-name = "texture-atlas-tools"
-version = "0.2.0"
+name = "bevy_texture_atlas_tools"
+version = "0.3.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 keywords = ["bevy", "texture", "atlas", "sprites", "games"]
-categories = ["game-development"]
+categories = ["game-development", "Graphics"]
 repository = "https://github.com/ickshonpe/texure-atlas-tools"
 readme = "README.md"
 description = "tools for working with Bevy Texture Atlases"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 bevy = { version = "0.6.0", features = [] }
-ron = "0.7"
-serde = { version = "1", features = ["derive"] }
 anyhow = "1.0.4"
 rectangle-pack = "0.4"

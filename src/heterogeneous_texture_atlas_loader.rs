@@ -61,7 +61,7 @@ impl AssetLoader for HeterogeneousTextureAtlasManifestLoader {
     }
 }
 
-pub fn heterogeneous_atlas_manifest_events_handler(
+pub fn heterogeneous_texture_atlas_manifest_events_handler(
     mut local: Local<HashMap<Handle<Image>, Handle<HeterogeneousTextureAtlasManifest>>>,
     mut manifest_events: EventReader<AssetEvent<HeterogeneousTextureAtlasManifest>>,
     mut image_events: EventReader<AssetEvent<Image>>,
@@ -116,7 +116,6 @@ pub fn heterogeneous_atlas_manifest_events_handler(
 
 #[derive(Component)]
 pub struct HeterogeneousTextureAtlasLoadedEvent(pub Handle<HeterogeneousTextureAtlasManifest>);
-
 pub struct HeterogeneousTextureAtlasLoaderPlugin;
 
 impl Plugin for HeterogeneousTextureAtlasLoaderPlugin {
@@ -125,6 +124,9 @@ impl Plugin for HeterogeneousTextureAtlasLoaderPlugin {
         .add_event::<HeterogeneousTextureAtlasLoadedEvent>()
         .add_asset::<HeterogeneousTextureAtlasManifest>()
         .init_asset_loader::<HeterogeneousTextureAtlasManifestLoader>()
-        .add_system(heterogeneous_atlas_manifest_events_handler);
+        .add_system_to_stage(
+            CoreStage::PreUpdate,
+            heterogeneous_texture_atlas_manifest_events_handler
+        );
     }
 }

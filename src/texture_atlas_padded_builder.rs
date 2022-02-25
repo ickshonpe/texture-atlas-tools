@@ -16,8 +16,8 @@ use rectangle_pack::{
 // right edges of the atlas are padded unnecessarily.
 // There are other ways of dealing with texture bleeding such as texture arrays or turning off MSAA.
 
-use bevy::sprite::{Rect, TextureAtlas};
 use bevy::sprite::TextureAtlasBuilderError;
+use bevy::sprite::{Rect, TextureAtlas};
 
 #[derive(Debug)]
 /// A builder which is used to create a texture atlas from many individual
@@ -93,7 +93,7 @@ impl TextureAtlasPaddedBuilder {
         atlas_texture: &mut Image,
         texture: &Image,
         packed_location: &PackedLocation,
-        padding: [u32; 2]
+        padding: [u32; 2],
     ) {
         let rect_width = (packed_location.width() - padding[0]) as usize;
         let rect_height = (packed_location.height() - padding[1]) as usize;
@@ -125,7 +125,12 @@ impl TextureAtlasPaddedBuilder {
                 "Converting texture from '{:?}' to '{:?}'",
                 texture.texture_descriptor.format, self.format
             );
-            Self::copy_texture_to_atlas(atlas_texture, &converted_texture, packed_location, self.padding);
+            Self::copy_texture_to_atlas(
+                atlas_texture,
+                &converted_texture,
+                packed_location,
+                self.padding,
+            );
         } else {
             error!(
                 "Error converting texture from '{:?}' to '{:?}', ignoring",
