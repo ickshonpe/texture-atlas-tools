@@ -2,6 +2,10 @@
 
 Collection of tools for working with Bevy Texture Atlases.
 
+### Version 0.4
+
+* Supports Bevy 0.7
+
 ### Version 0.3 Updates
 
 *   The heterogeneous texture atlas loader has been split into its own crate
@@ -19,12 +23,12 @@ https://crates.io/crates/bevy_heterogeneous_texture_atlas_loader
 
 To use this crate, add this line to the ```[dependencies]``` section of your project's ```Cargo.toml``` file:
 ```toml
-bevy_texture_atlas_tools = "0.3"
+bevy_texture_atlas_tools = "0.4"
 ```
 #
 
 ### Notes
-* Supports Bevy 0.6
+* versions <0.4 support Bevy 0.6
 
 * For working with homogeneous tilesets, you should look at these crates:
     
