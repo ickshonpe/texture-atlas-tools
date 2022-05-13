@@ -11,7 +11,7 @@ use rectangle_pack::{
     RectToInsert, TargetBin,
 };
 
-// 0.6 bevy texture atlas builder with automatic padding hacked in
+// 0.7 bevy texture atlas builder with automatic padding hacked in
 // Potentially wastes a small amount of space because rects touching the bottom and
 // right edges of the atlas are padded unnecessarily.
 // There are other ways of dealing with texture bleeding such as texture arrays or turning off MSAA.
