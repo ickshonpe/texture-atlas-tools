@@ -4,8 +4,8 @@ Collection of tools for working with Bevy Texture Atlases.
 
 ### Version 0.5
 
-* supports bevy 0.8
-* added an example for ```TextureAtlasPaddedBuilder```.
+* Supports Bevy 0.8
+* Added an example for ```TextureAtlasPaddedBuilder```.
 
 ### Version 0.4
 
@@ -17,6 +17,7 @@ Collection of tools for working with Bevy Texture Atlases.
 https://crates.io/crates/bevy_heterogeneous_texture_atlas_loader
 * Sprite merging now implemented with an extension trait 
     ```MergeSpritesExt``` on ```TextureAtlas```.
+* versions <0.4 support Bevy 0.6
 
 ### Features
 
@@ -41,8 +42,6 @@ cargo run --example padded_atlas
 
 ### Notes
 * Nothing seems to have changed wrt ```TextureAtlas``` in the Bevy 0.8 update, BTAT 0.5 just raises the Bevy version to 0.8. Added a ```TextureAtlasPaddedBuilder``` example as a sanity check and it all seems to work.
-
-* versions <0.4 support Bevy 0.6
 
 * For working with homogeneous tilesets, you should look at these crates:
     
