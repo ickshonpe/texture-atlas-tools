@@ -2,6 +2,11 @@
 
 Collection of tools for working with Bevy Texture Atlases.
 
+### Version 0.5
+
+* supports bevy 0.8
+* added an example for ```TextureAtlasPaddedBuilder```.
+
 ### Version 0.4
 
 * Supports Bevy 0.7
@@ -23,11 +28,20 @@ https://crates.io/crates/bevy_heterogeneous_texture_atlas_loader
 
 To use this crate, add this line to the ```[dependencies]``` section of your project's ```Cargo.toml``` file:
 ```toml
-bevy_texture_atlas_tools = "0.4"
+bevy_texture_atlas_tools = "0.5"
 ```
 #
 
+### Examples
+Minimal example that builds a texture atlas with 8 x 8 padding around each sprite, run with:
+
+```
+cargo run --example padded_atlas
+```
+
 ### Notes
+* Nothing seems to have changed wrt ```TextureAtlas``` in the Bevy 0.8 update, BTAT 0.5 just raises the Bevy version to 0.8. Added a ```TextureAtlasPaddedBuilder``` example as a sanity check and it all seems to work.
+
 * versions <0.4 support Bevy 0.6
 
 * For working with homogeneous tilesets, you should look at these crates:
@@ -38,7 +52,7 @@ bevy_texture_atlas_tools = "0.4"
 
     which are both really good with lots features.
 
-* You might not need to add padding to fix texture bleeding issues. 
+* I'm not certain that there is a neeed for padding to fix texture bleeding issues any more.  
 
     MSAA isn't required for most 2D games and turning it off fixes most issues. Do that by adding the following to your Bevy ``App``:
 
@@ -47,8 +61,6 @@ bevy_texture_atlas_tools = "0.4"
     ```
     You can also look into using texture arrays instead of atlases.
 
-* There isn't proper documentation or examples, because I'm not sure that this crate is that useful. 
-
-  If you do need help or have any questions, don't hesitate to contact me. I'm almost always available on the Bevy discord channel
+* If you do need help or have any questions, don't hesitate to contact me. I'm almost always available on the Bevy discord channel
 
     https://discord.com/invite/bevy

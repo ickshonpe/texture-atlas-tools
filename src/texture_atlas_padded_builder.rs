@@ -70,6 +70,11 @@ impl TextureAtlasPaddedBuilder {
         self
     }
 
+    pub fn padding(mut self, padding: [u32; 2]) -> Self {
+        self.padding = padding;
+        self
+    }
+
     /// Control whether the added texture should be converted to the atlas format, if different.
     pub fn auto_format_conversion(mut self, auto_format_conversion: bool) -> Self {
         self.auto_format_conversion = auto_format_conversion;
@@ -87,6 +92,12 @@ impl TextureAtlasPaddedBuilder {
                 1,
             ),
         )
+    }
+
+    pub fn add_textures<'a>(&mut self, textures: impl IntoIterator<Item = (Handle<Image>, &'a Image)>) {
+        for (handle, texture) in textures {
+            self.add_texture(handle, texture);
+        }
     }
 
     fn copy_texture_to_atlas(
