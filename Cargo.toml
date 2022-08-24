@@ -1,11 +1,11 @@
 [package]
 name = "bevy_texture_atlas_tools"
-version = "0.5.0"
+version = "0.5.1"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 keywords = ["bevy", "texture", "atlas", "sprites", "games"]
 categories = ["game-development", "graphics"]
-repository = "https://github.com/ickshonpe/texure-atlas-tools"
+repository = "https://github.com/ickshonpe/texture-atlas-tools"
 readme = "README.md"
 description = "tools for working with Bevy Texture Atlases"
 
