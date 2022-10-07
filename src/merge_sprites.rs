@@ -1,25 +1,27 @@
 use bevy::prelude::*;
 
 pub trait MergeSpritesExt {
-    fn merge_sprites_in_place(&mut self, min_index: usize, max_index: usize);
-    fn merge_sprites(&mut self, min_index: usize, max_index: usize) -> usize;
+    fn merge_sprites_in_place(&mut self, a: usize, b: usize);
+    fn merge_sprites(&mut self, a: usize, b: usize) -> usize;
 }
 
 impl MergeSpritesExt for TextureAtlas {
-    /// Merge sprites between indices min_index and max_index into a single sprite.
-    /// The new sprite replaces the sprite at min_index.
-    fn merge_sprites_in_place(&mut self, min_index: usize, max_index: usize) {
-        self.textures[min_index].max = self.textures[max_index].max;
+    /// Creates a new sprite from the smallest rect that contains the sprites at indices `a` and `b`.
+    /// The new sprite replaces the sprite at index `a`.
+    fn merge_sprites_in_place(&mut self, a: usize, b: usize) {
+        self.textures[a] = bevy::sprite::Rect {
+            min: self.textures[a].min.min(self.textures[b].min),
+            max: self.textures[a].max.max(self.textures[b].max),
+        };
     }
 
-    /// Merge sprites between indices min_index and max_index into a single sprite.
+    /// Creates a new sprite from the smallest rect that contains the sprites at indices `a` and `b`.
     /// The original sprites are not modified. A new sprite is added to the texture atlas.
     /// Returns the index of the new sprite.
-    fn merge_sprites(&mut self, min_index: usize, max_index: usize) -> usize {
-        let rect = bevy::sprite::Rect {
-            min: self.textures[min_index].min,
-            max: self.textures[max_index].max,
-        };
-        self.add_texture(rect)
+    fn merge_sprites(&mut self, a: usize, b: usize) -> usize {
+        self.add_texture(bevy::sprite::Rect {
+            min: self.textures[a].min.min(self.textures[b].min),
+            max: self.textures[a].max.max(self.textures[b].max),
+        })
     }
 }

@@ -1,6 +1,6 @@
 [package]
 name = "bevy_texture_atlas_tools"
-version = "0.5.1"
+version = "0.6.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 keywords = ["bevy", "texture", "atlas", "sprites", "games"]
@@ -10,9 +10,9 @@ readme = "README.md"
 description = "tools for working with Bevy Texture Atlases"
 
 [dependencies]
-bevy = { version = "0.8.0", features = [] }
+bevy = { version = "0.8", default-features = false, features = ["bevy_asset", "render"] }
 anyhow = "1.0.4"
 rectangle-pack = "0.4"
 
 [dev-dependencies]
-bevy = "0.8.0"
+bevy = "0.8"

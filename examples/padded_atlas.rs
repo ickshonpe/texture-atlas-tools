@@ -1,5 +1,4 @@
 use bevy::prelude::*;
-use bevy::render::texture;
 use bevy_texture_atlas_tools::*;
 
 struct SpriteImages(Vec<Handle<Image>>);

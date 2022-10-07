@@ -2,6 +2,10 @@
 
 Collection of tools for working with Bevy Texture Atlases.
 
+### Version 0.6
+
+* Disabled Bevy default features. The crate only uses `render` and `bevy_asset` now.
+
 ### Version 0.5
 
 * Supports Bevy 0.8
