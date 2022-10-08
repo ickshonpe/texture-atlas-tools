@@ -43,27 +43,3 @@ Minimal example that builds a texture atlas with 8 x 8 padding around each sprit
 ```
 cargo run --example padded_atlas
 ```
-
-### Notes
-* Nothing seems to have changed wrt ```TextureAtlas``` in the Bevy 0.8 update, BTAT 0.5 just raises the Bevy version to 0.8. Added a ```TextureAtlasPaddedBuilder``` example as a sanity check and it all seems to work.
-
-* For working with homogeneous tilesets, you should look at these crates:
-    
-    https://github.com/MrGVSV/bevy_tileset
-    
-    https://github.com/StarArawn/bevy_ecs_tilemap
-
-    which are both really good with lots features.
-
-* I'm not certain that there is a neeed for padding to fix texture bleeding issues any more.  
-
-    MSAA isn't required for most 2D games and turning it off fixes most issues. Do that by adding the following to your Bevy ``App``:
-
-    ```rust
-    app.insert_resource(MSAA { samples: 1 });
-    ```
-    You can also look into using texture arrays instead of atlases.
-
-* If you do need help or have any questions, don't hesitate to contact me. I'm almost always available on the Bevy discord channel
-
-    https://discord.com/invite/bevy
